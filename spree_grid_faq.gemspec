@@ -1,4 +1,4 @@
-require "spree_grid_faq/version"
+require "lib/spree_grid_faq/version"
 
 # encoding: UTF-8
 Gem::Specification.new do |s|
