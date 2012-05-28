@@ -1,0 +1,36 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li id="new_product_link">
+      <%= button_link_to t("new_question"), new_object_url, {:icon => 'add'} %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%=t("questions") %></h1>
+
+<table class="index">
+  <tr>
+    <th><%= Spree::Question.human_attribute_name(:question) %></th>
+    <th><%= Spree::Question.human_attribute_name(:answer) %></th>
+    <th><%= t("action") %></th>
+  </tr>
+  <tbody>
+      <% @questions.each do |question| %>
+    <tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id question %>">
+      <td>
+        <%= question.question %>
+      </td>
+      <td>
+        <%= question.answer %>
+      </td>
+      <td>
+        <%= link_to_edit question %> &nbsp;
+        <%= link_to_delete question %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @questions %>

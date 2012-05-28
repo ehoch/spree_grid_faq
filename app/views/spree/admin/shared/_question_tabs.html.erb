@@ -1,0 +1,24 @@
+<h1><%= t(:editing_question) %> &ldquo;<%= @question.question %>&rdquo;</h1>
+
+<% content_for :sidebar do %>
+
+  <h3><%= @question.question %></h3>
+  <br class="clear" />
+
+  <ul class="sidebar question-menu" data-hook="admin_question_tabs">
+    <li<%== ' class="active"' if current == 'Question Details' %>>
+      <%= link_to t(:question_details), edit_admin_question_url(@question) %>
+    </li>
+    
+    <li<%== ' class="active"' if current == 'Taxons' %>>
+      <%= link_to t(:taxons), selected_admin_question_taxons_url(@question) %>
+    </li>
+
+    <li<%== ' class="active"' if current == 'Products' %>>
+      <%= link_to t(:products), selected_admin_question_products_url(@question) %>
+    </li>
+
+  </ul>
+  <br class="clear" />
+
+<% end %>

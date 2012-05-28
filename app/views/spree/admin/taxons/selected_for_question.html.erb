@@ -1,0 +1,40 @@
+<%= render :partial => 'spree/admin/shared/question_tabs', :locals => { :current => 'Taxons' } %>
+<div id="selected-taxons" data-hook>
+  <%= render :partial => 'question_taxon_table', :locals => { :taxons => @taxons } %>
+</div>
+
+<%= form_tag '#' do %>
+  <%= label_tag nil, t(:search) %>:
+  <input id="searchtext" size="25">
+<% end %>
+
+<%= javascript_tag do %>
+  function search_for_taxons(){
+    $.ajax({
+     data: {q: $("#searchtext").val() },
+     dataType: 'html',
+     success: function(request){
+       jQuery('#search_hits').html(request);
+     },
+     type: 'POST',
+     url: '<%= available_admin_question_taxons_url(@question, :format => 'js') %>'
+    });
+  }
+
+  $("#searchtext").keypress(function (e) {
+    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+      search_for_taxons();
+
+      return false;
+    } else {
+       return true;
+    }
+  });
+
+  $("#searchtext").delayedObserver(function() {
+    search_for_taxons();
+  }, 0.75);
+<% end %>
+<br />
+<div id="search_hits" data-hook></div>
+

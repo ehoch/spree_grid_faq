@@ -1,0 +1,10 @@
+- content_for :sidebar do
+  = render :partial => "spree/shared/taxonomies"
+
+%h1=t(:questions)
+
+#questions_container
+  - @questions.each do |question|
+    = link_to question.question, question
+    %br/
+    = question.description

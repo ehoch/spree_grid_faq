@@ -1,0 +1,26 @@
+<h4><%= t(:available_products) %></h4>
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= t(:name) %></th>
+      <th><%= t(:path) %></th>
+      <th><%= t(:action) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr id="<%= dom_id(product, :sel) %>">
+        <td><%= product.name %></td>
+        <td><%= product_path product %></td>
+        <td class="actions">
+          <%= link_to icon(:add) + ' ' + t(:select),
+                            select_admin_question_product_path(@question, product),
+                           :remote => true, :class => 'iconlink' %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @products.empty? %>
+     <tr><td colspan="3"><%= t(:no_match_found) %>.</td></tr>
+    <% end %>
+  </tbody>
+</table>

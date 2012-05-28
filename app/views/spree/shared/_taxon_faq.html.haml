@@ -1,0 +1,5 @@
+- if @taxon && @taxon.questions
+  %h6.taxonomy-root #{@taxon.name} FAQ
+  %ul.taxons-list
+    - @taxon.questions.each do |question|
+      %li=link_to question.question, question

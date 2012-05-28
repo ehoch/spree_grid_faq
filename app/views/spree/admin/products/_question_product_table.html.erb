@@ -1,0 +1,23 @@
+<table class="index">
+  <thead>
+    <tr data-hook="products_header">
+      <th><%= t(:name) %></th>
+      <th><%= t(:path) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+      <tr id="<%= dom_id(product) %>" data-hook="products_row">
+        <td><%= product.name %></td>
+        <td><%= product_path product %></td>
+        <td class="actions">
+          <%= link_to_delete product, :url => remove_admin_question_product_url(@question, product), :name => icon('delete') + ' ' + t(:remove) %>
+        </td>
+      </tr>
+    <% end %>
+    <% if products.empty? %>
+     <tr data-hook="products_none"><td colspan="3"><%= t(:none) %>.</td></tr>
+    <% end %>
+  </tbody>
+</table>

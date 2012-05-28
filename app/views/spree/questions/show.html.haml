@@ -1,0 +1,15 @@
+%h1=@question.question
+.answer=@question.answer.html_safe
+
+- unless @question.products.all.empty?
+  %hr
+  %h2 Related Products
+  %div{:data => {:hook => 'faq_products' } }
+    = render :partial => 'spree/shared/products', :locals => { :products => @question.products }
+
+- unless @question.taxons.all.empty?
+  %hr
+  %h2 Related Categories
+  %ul
+    - @question.taxons.each do |taxon|
+      %li= link_to taxon.name, seo_url(taxon)
