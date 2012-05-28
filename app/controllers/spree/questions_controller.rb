@@ -2,7 +2,8 @@ module Spree
   class QuestionsController < Spree::BaseController 
 
     def index
-      @questions = Question.scoped
+      @questions = Question.page(params[:page])
+      raise ActionController::RoutingError.new('No Matching Questions') if not params[:page].nil? and @questions.all.empty?
       @title = 'Frequently Asked Questions'
     end
   

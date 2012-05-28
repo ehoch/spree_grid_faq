@@ -20,10 +20,12 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 1.1.0'
+  s.add_dependency 'haml'
 
   s.add_development_dependency 'capybara', '1.0.1'
   s.add_development_dependency 'factory_girl', '~> 2.6.4'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'rspec-rails',  '~> 2.9'
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'launchy'
 end

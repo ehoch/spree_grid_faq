@@ -4,12 +4,10 @@ This Spree extension will install a pretty advanced FAQ (Frequently Asked Questi
 
 Known Issues / Coming Soon
 =========
-* A complete lack of specs.  Coming soon once my dumb self learns how to do this for spree extensions
 * Breadcrumbs
-* Browse by taxon for FAQ
+* Browse by taxon (in sidebar) for FAQ pages
 * Search by SKU
 * DRY up copy and pasted product / taxon code
-* Pagination
 * Double active tabs in admin
 
 Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
@@ -18,4 +16,4 @@ Be sure to bundle your dependencies and then create a dummy test app for the spe
     $ bundle exec rake test_app
     $ bundle exec rspec spec
 
-Copyright (c) 2012 [name of extension creator], released under the New BSD License
+Copyright (c) 2012 Eric Hochberger, released under the New BSD License

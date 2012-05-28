@@ -1,5 +1,9 @@
 Spree::Core::Engine.routes.draw do
-  resources :questions, :only => [:index, :show], :path => 'faq'
+  resources :questions, :only => [:show], :path => 'faq' do
+    collection do
+      get '(/page-:page.html)', :action => :index, :as => ''
+    end
+  end
   
   namespace :admin do
     resources :questions do

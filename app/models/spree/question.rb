@@ -4,6 +4,8 @@ module Spree
     has_and_belongs_to_many :products, :join_table => 'spree_products_questions'
     
     attr_accessible :question, :answer, :description
+    
+    paginates_per 10
 
     validates :question, :presence => true, :uniqueness => true
     validates :slug, :uniqueness => true
