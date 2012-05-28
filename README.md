@@ -9,6 +9,8 @@ Known Issues / Coming Soon
 * Browse by taxon for FAQ
 * Search by SKU
 * DRY up copy and pasted product / taxon code
+* Pagination
+* Double active tabs in admin
 
 Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
 
