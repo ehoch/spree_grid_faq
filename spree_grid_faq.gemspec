@@ -1,8 +1,10 @@
+require "spree_grid_faq/version"
+
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_grid_faq'
-  s.version     = '0.0.2'
+  s.version     = SpreeGridFaq::VERSION
   s.summary     = 'Spree Grid FAQ adds a Frequently Asked Question section to your spree store'
   s.description = 'Spree Grid FAQ adds a Frequently Asked Question section to your spree store.  It allows questions to be attached to existing taxons and products and was designe for Alarm Grid.'
   s.required_ruby_version = '>= 1.8.7'

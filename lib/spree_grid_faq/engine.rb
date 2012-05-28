@@ -1,4 +1,4 @@
-module SpreeFaqs
+module SpreeGridFaq
   class Engine < Rails::Engine
     engine_name 'spree_grid_faq'
 
