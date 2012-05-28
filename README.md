@@ -8,7 +8,7 @@ Known Issues / Coming Soon
 * Breadcrumbs
 * Browse by taxon for FAQ
 * Search by SKU
-
+* DRY up copy and pasted product / taxon code
 
 Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
 
