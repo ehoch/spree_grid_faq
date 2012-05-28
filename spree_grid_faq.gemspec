@@ -1,4 +1,5 @@
-require "lib/spree_grid_faq/version"
+$:.push File.expand_path("../lib", __FILE__)
+require "spree_grid_faq/version"
 
 # encoding: UTF-8
 Gem::Specification.new do |s|
