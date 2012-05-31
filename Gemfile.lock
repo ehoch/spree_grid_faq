@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_grid_faq (0.0.2)
+    spree_grid_faq (0.0.3)
       haml
       spree_core (~> 1.1.0)
 

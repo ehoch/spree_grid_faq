@@ -1,0 +1,10 @@
+<% if @taxon and not @taxon.questions.limit(3).all.empty? %>
+<div data-hook="taxon_sidebar_faq">
+  <h6 class="taxonomy-root"><%=@taxon.name%> FAQ</h6>
+  <ul class="taxons-list">
+    <% @taxon.questions.limit(3).each do |question| %>
+      <li><%=link_to question.question, question%></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

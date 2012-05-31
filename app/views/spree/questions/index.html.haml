@@ -1,7 +1,7 @@
 - content_for :sidebar do
   = render :partial => "spree/shared/taxonomies"
 
-%h1=t(:questions)
+%h1=@title
 
 #questions_container
   - @questions.each do |question|
