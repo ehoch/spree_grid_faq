@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.email     = 'eric@alarmgrid.com'
   s.homepage  = 'http://www.alarmgrid.com'
 
-  #s.files       = `git ls-files`.split("\n")
-  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files       = `git ls-files`.split("\n")
+  # s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
