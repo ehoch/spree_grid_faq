@@ -1,3 +1,6 @@
+- content_for :sidebar do
+  = render :partial => "spree/shared/faq_taxons"
+
 %h1=@question.question
 .answer=@question.answer.html_safe
 
@@ -13,3 +16,4 @@
   %ul
     - @question.taxons.each do |taxon|
       %li= link_to taxon.name, seo_url(taxon)
+

@@ -2,7 +2,7 @@ Spree::Core::Engine.routes.draw do
   resources :questions, :only => [:show], :path => 'faq' do
     collection do
       get '(/page-:page)', :action => :index, :as => ''
-      match '/browse/(*id)(/page-:page)', :action => :browse
+      match '/browse/(*id)(/page-:page)', :action => :browse, :as => 'browse'
     end
   end
   
