@@ -17,6 +17,8 @@ module Spree
 
       def collection
         return @collection if @collection.present?
+        params[:q] ||= {}
+        params[:q][:s] ||= "created_at desc"
         @search = Spree::Question.search(params[:q])
         @collection = @search.result.page(params[:page]).per(20)
       end

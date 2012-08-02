@@ -1,7 +1,7 @@
 <div class='toolbar'>
   <ul class='actions'>
-    <li id="new_product_link">
-      <%= button_link_to t("new_question"), new_object_url, {:icon => 'add'} %>
+    <li>
+      <%= button_link_to 'New Question', new_object_url, { :icon => 'add' } %>
     </li>
   </ul>
   <br class='clear' />
@@ -13,6 +13,7 @@
   <tr>
     <th><%= Spree::Question.human_attribute_name(:question) %></th>
     <th><%= Spree::Question.human_attribute_name(:answer) %></th>
+    <th><%= sort_link @search,:created_at, t(:created_at), { :default_order => "desc" }, {:title => 'admin_products_listing_created_at_title'} %></th>
     <th><%= t("action") %></th>
   </tr>
   <tbody>
@@ -24,7 +25,10 @@
       <td>
         <%= question.answer %>
       </td>
-      <td>
+      <td style="white-space:nowrap;">
+        <%= time_tag question.created_at, :format => '%B %e, %Y %l:%M %P' %>
+      </td>
+      <td style="white-space:nowrap;">
         <%= link_to_edit question %> &nbsp;
         <%= link_to_delete question %>
       </td>
@@ -34,3 +38,31 @@
 </table>
 
 <%= paginate @questions %>
+
+<% content_for :sidebar do %>
+  <div data-hook="admin_questions_sidebar">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <div class="box">
+        <h3><%= t(:search) %></h3>
+
+        <%- locals = {:f => f} %>
+        <div data-hook="admin_questions_index_search">
+          <p>
+            <%= f.label :question_cont, t(:question) %><br />
+            <%= f.text_field :question_cont, :size => 40 %>
+          </p>
+          <p>
+            <%= f.label :answer_cont, t(:answer) %><br />
+            <%= f.text_field :answer_cont, :size => 40 %>
+          </p>
+        </div>
+
+        <div data-hook="admin_questions_index_search_buttons">
+          <p class="form-buttons">
+            <%= button t(:search) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
