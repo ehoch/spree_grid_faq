@@ -1,5 +1,5 @@
 - content_for :sidebar do
-  = render :partial => "spree/shared/faq_taxons"
+  = render :partial => "spree/shared/faq_sidebar_taxon_browse"
 - content_for :head do
   = auto_discovery_link_tag(:rss, spree.questions_path(:format => :xml, :page => nil), {:title => "FAQ Feed" })
 
