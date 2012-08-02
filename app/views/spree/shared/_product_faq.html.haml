@@ -1,5 +1,6 @@
 - if @product and not @product.questions.all.empty?
-  %h6.product-section-title #{@product.name} FAQ
-  %ul.products-faq
-    - @product.questions.each do |question|
-      %li=link_to question.question, question
+  .alpha.columns.five.omega
+    %h6.product-section-title #{@product.name} FAQ
+    %ul.products-faq
+      - @product.questions.each do |question|
+        %li=link_to question.question, question

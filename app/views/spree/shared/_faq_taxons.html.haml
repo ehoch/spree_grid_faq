@@ -1,5 +1,5 @@
 - cache("faq_taxons", :expires_in => 1.hour) do
-  %h6 Browse FAQ by Category
+  %h5 Browse FAQ by Category
   %ul
     - Spree::Taxon.joins(:questions).group('spree_taxons.id').order(:position).find_each do |taxon|
       %li= link_to taxon.name, spree.browse_questions_path(:id => taxon.permalink)
